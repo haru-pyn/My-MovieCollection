@@ -11,7 +11,21 @@
     </header>
     <body>
         <div id="mo-co">
-            Hello
+            <p>
+                newTitle:<input type="text" v-model="newTitle"><br>
+                newMemo:<input type="text" v-model="newMemo"><br>
+                Category:<select>
+                    <option selected>アクション</option>
+                    <option>ホラー・サスペンス</option>
+                    <option>ラブロマンス</option>
+                    <option>SF・ファンタジー</option>
+                    <option>アニメ</option>
+                </select>
+                <button @click="addMovie">追加</button>
+            </p>
+            <li v-for="movie in Movies" :key="movie.id">
+                <span>{{ movie.title }}{{ movie.memo }}{{ movie.category }}</span>
+            </li>
         </div>
      <!-- Vue.js -->
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
