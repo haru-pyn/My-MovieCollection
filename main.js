@@ -43,6 +43,9 @@ new Vue({
         initMemo: function(){
             this.newMemo = '';
         },
-        
+        DeleteMovies: function(movie){console.log(movie)
+            var index = this.Movies.indexOf(movie)
+            this.Movies.splice(index,1)
+        }
     }
 })

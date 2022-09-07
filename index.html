@@ -14,17 +14,19 @@
             <p>
                 newTitle:<input type="text" v-model="newTitle"><br>
                 newMemo:<input type="text" v-model="newMemo"><br>
-                Category:<select>
-                    <option selected>アクション</option>
+                Category:<select v-model="newCategory">
+                    <option value="">カテゴリーを選択</option>
+                    <option>アクション</option>
                     <option>ホラー・サスペンス</option>
                     <option>ラブロマンス</option>
                     <option>SF・ファンタジー</option>
                     <option>アニメ</option>
                 </select>
-                <button @click="addMovie">追加</button>
+                <button @click="addMovie">Add</button>
             </p>
             <li v-for="movie in Movies" :key="movie.id">
-                <span>{{ movie.title }}{{ movie.memo }}{{ movie.category }}</span>
+                <span>{{ movie.id }}{{ movie.title }}{{ movie.memo }}{{ movie.category }}</span>
+                <button @click="DeleteMovies(movie)">Delete</button>
             </li>
         </div>
      <!-- Vue.js -->
