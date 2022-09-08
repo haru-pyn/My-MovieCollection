@@ -5,7 +5,7 @@ new Vue({
         newCategory:'',
         newMemo:'',
         uniqueKey:0,
-        Movies:[]
+        Movies:JSON.parse(localStorage.getItem('Movies')) || []
     },
     mounted(){
         this.getUniqueKey()
@@ -34,8 +34,9 @@ new Vue({
                     id: ++this.uniqueKey
                 }
             );
-            this.initTitle;
-            this.initMemo;
+            this.initTitle();
+            this.initMemo();
+            this.setMovies();
         },
         initTitle: function(){
             this.newTitle = '';
@@ -43,9 +44,13 @@ new Vue({
         initMemo: function(){
             this.newMemo = '';
         },
-        DeleteMovies: function(movie){console.log(movie)
+        DeleteMovies: function(movie){
             var index = this.Movies.indexOf(movie)
             this.Movies.splice(index,1)
+            this.setMovies();
+        },
+        setMovies: function(){
+            localStorage.setItem('Movies', JSON.stringify(this.Movies));
         }
     }
 })
