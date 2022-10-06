@@ -10,6 +10,13 @@ new Vue({
     mounted(){
         this.getUniqueKey()
     },
+    computed: {
+        filterByCategory: function(){
+            return this.Movies.filter(
+                (movie) => !movie.category.indexOf(this.newCategory)
+            );
+        }
+    },
     methods:{
         getUniqueKey: function(){
             if(this.Movies.length === 0){

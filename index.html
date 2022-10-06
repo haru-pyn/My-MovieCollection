@@ -14,20 +14,29 @@
             <p>
                 newTitle:<input type="text" v-model="newTitle"><br>
                 newMemo:<input type="text" v-model="newMemo"><br>
-                Category:<select v-model="newCategory">
+                Category:<select name="categorys" v-model="newCategory" id="selectCategorys">
                     <option value="">カテゴリーを選択</option>
-                    <option>アクション</option>
-                    <option>ホラー・サスペンス</option>
-                    <option>ラブロマンス</option>
-                    <option>SF・ファンタジー</option>
-                    <option>アニメ</option>
+                    <option value="action">アクション</option>
+                    <option value="horrorSuspence">ホラー・サスペンス</option>
+                    <option value="loveromance">ラブロマンス</option>
+                    <option value="sfFantasy">SF・ファンタジー</option>
+                    <option value="anime">アニメ</option>
                 </select>
                 <button @click="addMovie">Add</button>
             </p>
-            <li v-for="movie in Movies" :key="movie.id">
+
+            <input type="radio" v-model="newCategory" class="radiobutton" value="">全て
+            <input type="radio" v-model="newCategory" class="radiobutton" value="action">アクション
+            <input type="radio" v-model="newCategory" class="radiobutton" value="horrorSuspence">ホラー・サスペンス
+            <input type="radio" v-model="newCategory" class="radiobutton" value="loveromance">ラブロマンス
+            <input type="radio" v-model="newCategory" class="radiobutton" value="sfFantasy">SF・ファンタジー
+            <input type="radio" v-model="newCategory" class="radiobutton" value="anime">アニメ
+            
+            <li v-for="movie in filterByCategory" :key="movie.id">
                 <span>{{ movie.id }}{{ movie.title }}{{ movie.memo }}{{ movie.category }}</span>
                 <button @click="DeleteMovies(movie)">Delete</button>
             </li>
+
         </div>
      <!-- Vue.js -->
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
