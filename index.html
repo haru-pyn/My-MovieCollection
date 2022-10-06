@@ -25,13 +25,16 @@
                 <button @click="addMovie">Add</button>
             </p>
 
-            <input type="radio" v-model="newCategory" class="radiobutton" value="">全て
-            <input type="radio" v-model="newCategory" class="radiobutton" value="action">アクション
-            <input type="radio" v-model="newCategory" class="radiobutton" value="horrorSuspence">ホラー・サスペンス
-            <input type="radio" v-model="newCategory" class="radiobutton" value="loveromance">ラブロマンス
-            <input type="radio" v-model="newCategory" class="radiobutton" value="sfFantasy">SF・ファンタジー
-            <input type="radio" v-model="newCategory" class="radiobutton" value="anime">アニメ
+            <div class="radio-button">
+            <label><input type="radio" v-model="newCategory" value=""><span>全て</span></label>
+            <label><input type="radio" v-model="newCategory" value="action"><span>アクション</span></label>
+            <label><input type="radio" v-model="newCategory" value="horrorSuspence"><span>ホラー・サスペンス</span></label>
+            <label><input type="radio" v-model="newCategory" value="loveromance"><span>ラブロマンス</span></label>
+            <label><input type="radio" v-model="newCategory" value="sfFantasy"><span>SF・ファンタジー</span></label>
+            <label><input type="radio" v-model="newCategory" value="anime"><span>アニメ</span></label>
+            </div>
             
+            <br>
             <li v-for="movie in filterByCategory" :key="movie.id">
                 <span>{{ movie.id }}{{ movie.title }}{{ movie.memo }}{{ movie.category }}</span>
                 <button @click="DeleteMovies(movie)">Delete</button>
