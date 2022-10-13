@@ -1,9 +1,15 @@
+const StarRating = window['VueStarRating'].default;
+
 new Vue({
     el: '#mo-co',
+    components:{
+        'star-rating':StarRating
+    },
     data:{
         newTitle:'',
         newCategory:'',
         newMemo:'',
+        rating:0,
         uniqueKey:0,
         Movies:JSON.parse(localStorage.getItem('Movies')) || []
     },
@@ -38,7 +44,8 @@ new Vue({
                     title: this.newTitle,
                     category: this.newCategory,
                     memo: this.newMemo,
-                    id: ++this.uniqueKey
+                    id: ++this.uniqueKey,
+                    star: this.rating
                 }
             );
             this.initTitle();
