@@ -65,6 +65,33 @@ new Vue({
         },
         setMovies: function(){
             localStorage.setItem('Movies', JSON.stringify(this.Movies));
+        },
+        titleSort: function(){
+            this.Movies.sort(function(a,b){
+                if(a.title > b.title) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
+        },
+        newAddSort: function(){
+            this.Movies.sort(function(a,b){
+                if(a.id > b.id) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            });
+        },
+        oldAddSort: function(){
+            this.Movies.sort(function(a,b){
+                if(a.id > b.id) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
         }
     }
 })
