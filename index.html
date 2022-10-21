@@ -11,10 +11,10 @@
     </header>
     <body>
         <div id="mo-co">
-            <p>
-                newTitle:<input type="text" v-model="newTitle"><br>
-                newMemo:<input type="text" v-model="newMemo"><br>
-                Category:<select name="categorys" v-model="newCategory" id="selectCategorys">
+            <p class="boxA">
+                newTitle <input type="text" v-model="newTitle" class="new"><br>
+                newMemo <input type="text" v-model="newMemo" class="new"><br>
+                Category <select name="categorys" v-model="newCategory" id="selectCategorys" class="new">
                     <option value="">カテゴリーを選択</option>
                     <option value="action">アクション</option>
                     <option value="horrorSuspence">ホラー・サスペンス</option>
@@ -22,8 +22,8 @@
                     <option value="sfFantasy">SF・ファンタジー</option>
                     <option value="anime">アニメ</option>
                 </select><br>
-                <star-rating v-model="rating" star-size="35"></star-rating>
-                <button @click="addMovie">Add</button>
+                評価<star-rating v-model="rating" star-size="35"></star-rating>
+                <button @click="addMovie" class="buttons">Add</button>
             </p>
 
             <div class="radio-button">
@@ -39,11 +39,13 @@
             <button @click="newAddSort" class="SORT">New</button>
             <button @click="oldAddSort" class="SORT">Old</button>
 
-            <li v-for="movie in filterByCategory" :key="movie.id">
-                <span>TITLE:{{ movie.title }} CATEGORY:{{ movie.category }} 評価★{{ movie.star }}<br>
-                      MEMO:{{ movie.memo }}</span>
-                <button @click="DeleteMovies(movie)">Delete</button>
-            </li>
+            <ul class="boxB">
+             <li v-for="movie in filterByCategory" :key="movie.id">
+                 <span>TITLE:{{ movie.title }} CATEGORY:{{ movie.category }} 評価★{{ movie.star }}<br>
+                       MEMO:{{ movie.memo }}</span>
+                 <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
+             </li>
+            </ul>
 
         </div>
     

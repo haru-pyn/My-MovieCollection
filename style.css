@@ -16,3 +16,66 @@ label input:checked + span {
     background: #bbe2f1; /* 背景色を薄い赤に */
     border: 1px solid #bbe2f1; /* 淵の線を薄い赤に */
 }
+.boxA { padding: 0.5em 1em;
+margin: 2em 0;
+font-weight: bold;
+background: #FFF;
+border: solid 3px #bbe2f1;/*線*/
+border-radius: 10px;/*角の丸み*/
+width: 90%;
+}
+.boxB {
+    list-style: none;
+    width: 90%;
+}
+.boxB li{
+    color: rgb(0, 0, 0);
+    border-left: solid 8px #82cddd;
+    background: #edfaff;
+    margin-bottom: 5px;
+    padding: 0.5rem;
+    width: 90%;
+}
+.buttons {
+    display: block;	
+    position: relative;	
+    width: 100px;	
+    padding: 0.8em;	
+    text-align: center;	
+    text-decoration: none;	
+    color: #1B1B1B;	
+    background: #fff;	
+    border:1px solid #1B1B1B;
+    margin-left: auto;
+}
+.buttons:hover {
+    background: #82cddd; 
+    color: #fff; 
+    cursor: pointer; 
+    text-decoration: none;
+}
+.SORT {
+    background-color: #bbe2f1;
+    color: #fff;
+    padding: 5px 30px;
+    border:  #bbe2f1;
+}
+h1 {
+    color: #fff;
+    width: 100%;
+	line-height: 60px;
+	background: #bbe2f1;
+    text-align: center;
+}
+#mo-co {
+    width: 800px;
+    margin: 0 auto;
+  }
+.new{
+    border-radius: 10px;
+    border: 1px solid #bbe2f1;
+}
+.new:focus {
+    outline: 0;
+    border-color: #bbe2f1;
+}
