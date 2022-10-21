@@ -13,8 +13,8 @@
         <div id="mo-co">
             <p class="boxA">
                 Date <input type="date" v-model="newDate" class="new"><br>
-                NewTitle <input type="text" v-model="newTitle" class="new"><br>
-                NewMemo <input type="text" v-model="newMemo" class="new"><br>
+                Title <input type="text" v-model="newTitle" class="new"><br>
+                Memo <input type="text" v-model="newMemo" class="new"><br>
                 Category <select name="categorys" v-model="newCategory" id="selectCategorys" class="new">
                     <option value="">カテゴリーを選択</option>
                     <option value="action">アクション</option>
@@ -42,9 +42,9 @@
 
             <ul class="boxB">
              <li v-for="movie in filterByCategory" :key="movie.id">
-                 <span>DATA:{{ movie.date }}
-                       TITLE:{{ movie.title }} CATEGORY:{{ movie.category }} 評価★{{ movie.star }}<br>
-                       MEMO:{{ movie.memo }}</span>
+                 <span>Date:{{ movie.date }}
+                       Title:{{ movie.title }} Category:{{ movie.category }} 評価★{{ movie.star }}<br>
+                       Memo:{{ movie.memo }}</span>
                  <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
              </li>
             </ul>
