@@ -12,6 +12,7 @@
     <body>
         <div id="mo-co">
             <p class="boxA">
+                Day <input type="date" v-model="newDate" class="new"><br>
                 newTitle <input type="text" v-model="newTitle" class="new"><br>
                 newMemo <input type="text" v-model="newMemo" class="new"><br>
                 Category <select name="categorys" v-model="newCategory" id="selectCategorys" class="new">
@@ -41,7 +42,8 @@
 
             <ul class="boxB">
              <li v-for="movie in filterByCategory" :key="movie.id">
-                 <span>TITLE:{{ movie.title }} CATEGORY:{{ movie.category }} 評価★{{ movie.star }}<br>
+                 <span>DATA:{{ movie.date }}
+                       TITLE:{{ movie.title }} CATEGORY:{{ movie.category }} 評価★{{ movie.star }}<br>
                        MEMO:{{ movie.memo }}</span>
                  <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
              </li>

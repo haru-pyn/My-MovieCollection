@@ -6,6 +6,7 @@ new Vue({
         'star-rating':StarRating
     },
     data:{
+        newDate:'',
         newTitle:'',
         newCategory:'',
         newMemo:'',
@@ -41,6 +42,7 @@ new Vue({
             if (this.newTitle === '')return;
             this.Movies.push(
                 {
+                    date: this.newDate,
                     title: this.newTitle,
                     category: this.newCategory,
                     memo: this.newMemo,
