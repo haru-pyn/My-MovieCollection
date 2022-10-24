@@ -11,43 +11,61 @@
     </header>
     <body>
         <div id="mo-co">
-            <p class="boxA">
-                Date <input type="date" v-model="newDate" class="new"><br>
-                Title <input type="text" v-model="newTitle" class="new"><br>
-                Memo <input type="text" v-model="newMemo" class="new"><br>
-                Category <select name="categorys" v-model="newCategory" id="selectCategorys" class="new">
-                    <option value="">カテゴリーを選択</option>
-                    <option value="action">アクション</option>
-                    <option value="horrorSuspence">ホラー・サスペンス</option>
-                    <option value="loveromance">ラブロマンス</option>
-                    <option value="sfFantasy">SF・ファンタジー</option>
-                    <option value="anime">アニメ</option>
-                </select><br>
-                評価<star-rating v-model="rating" star-size="35"></star-rating>
-                <button @click="addMovie" class="buttons">Add</button>
-            </p>
+          <div v-if="home" key="home">
+              <p class="boxA">
+                  Date <input type="date" v-model="newDate" class="new"><br>
+                  Title <input type="text" v-model="newTitle" class="new"><br>
+                  Memo <input type="text" v-model="newMemo" class="new"><br>
+                  Category <select name="categorys" v-model="newCategory" id="selectCategorys" class="new">
+                      <option value="">カテゴリーを選択</option>
+                      <option value="action">アクション</option>
+                      <option value="horrorSuspence">ホラー・サスペンス</option>
+                      <option value="loveromance">ラブロマンス</option>
+                      <option value="sfFantasy">SF・ファンタジー</option>
+                      <option value="anime">アニメ</option>
+                  </select><br>
+                  評価<star-rating v-model="rating" star-size="35"></star-rating>
+                  <button @click="addMovie" class="buttons">Add</button>
+              </p>
+  
+              <div class="radio-button">
+              <label><input type="radio" v-model="newCategory" value=""><span>全て</span></label>
+              <label><input type="radio" v-model="newCategory" value="action"><span>アクション</span></label>
+              <label><input type="radio" v-model="newCategory" value="horrorSuspence"><span>ホラー・サスペンス</span></label>
+              <label><input type="radio" v-model="newCategory" value="loveromance"><span>ラブロマンス</span></label>
+              <label><input type="radio" v-model="newCategory" value="sfFantasy"><span>SF・ファンタジー</span></label>
+              <label><input type="radio" v-model="newCategory" value="anime"><span>アニメ</span></label>
+              </div><br>
+  
+              <button @click="titleSort" class="SORT">TitleSort</button>
+              <button @click="newAddSort" class="SORT">New</button>
+              <button @click="oldAddSort" class="SORT">Old</button>
+  
+              <div class="boxB">
+                  <li v-for="movie in filterByCategory" :key="movie.id">
+                      <span>Date:{{ movie.date }}
+                            Title:{{ movie.title }} Category:{{ movie.category }} 評価★{{ movie.star }}<br>
+                            Memo:{{ movie.memo }}</span>
+                      <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
+                  </li>
+              </div>
 
-            <div class="radio-button">
-            <label><input type="radio" v-model="newCategory" value=""><span>全て</span></label>
-            <label><input type="radio" v-model="newCategory" value="action"><span>アクション</span></label>
-            <label><input type="radio" v-model="newCategory" value="horrorSuspence"><span>ホラー・サスペンス</span></label>
-            <label><input type="radio" v-model="newCategory" value="loveromance"><span>ラブロマンス</span></label>
-            <label><input type="radio" v-model="newCategory" value="sfFantasy"><span>SF・ファンタジー</span></label>
-            <label><input type="radio" v-model="newCategory" value="anime"><span>アニメ</span></label>
-            </div><br>
-
-            <button @click="titleSort" class="SORT">TitleSort</button>
-            <button @click="newAddSort" class="SORT">New</button>
-            <button @click="oldAddSort" class="SORT">Old</button>
-
-            <ul class="boxB">
-             <li v-for="movie in filterByCategory" :key="movie.id">
-                 <span>Date:{{ movie.date }}
-                       Title:{{ movie.title }} Category:{{ movie.category }} 評価★{{ movie.star }}<br>
-                       Memo:{{ movie.memo }}</span>
-                 <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
-             </li>
-            </ul>
+               <div v-on:click="watchLeft">左の画面にいく</div>
+               <div v-on:click="watchRight">右の画面にいく</div>
+          </div>
+                
+                 
+          <div v-if="left" key="left">
+          <p>左の画面</p>
+          <div v-on:click="watchHome">HOMEに戻る</div>
+          <div v-on:click="watchRight">右の画面にいく</div>
+          </div>
+           
+          <div v-if="right" key="right">
+          <p>右の画面</p>
+          <div v-on:click="watchHome">HOMEに戻る</div>
+          <div v-on:click="watchLeft">左の画面にいく</div>
+          </div>
 
         </div>
     

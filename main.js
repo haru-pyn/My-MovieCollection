@@ -6,6 +6,9 @@ new Vue({
         'star-rating':StarRating
     },
     data:{
+        home: true,
+        left: false,
+        right: false,
         newDate:'',
         newTitle:'',
         newCategory:'',
@@ -94,6 +97,21 @@ new Vue({
                     return -1;
                 }
             });
-        }
+        },
+        watchHome: function () {
+            this.home = true;
+            this.left = false;
+            this.right = false;
+        },
+        watchLeft: function () {
+            this.home = false;
+            this.left = true;
+            this.right = false;
+        },
+        watchRight: function () {
+            this.home = false;
+            this.left = false;
+            this.right = true;
+        },
     }
 })
