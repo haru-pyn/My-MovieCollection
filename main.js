@@ -107,11 +107,54 @@ new Vue({
             this.home = false;
             this.left = true;
             this.right = false;
+
+            this.renderBarChart();
         },
         watchRight: function () {
             this.home = false;
             this.left = false;
             this.right = true;
         },
+        //グラフ↓
+        renderBarChart: function(){
+            var categorys = [];
+
+            let countAction = 0;
+            this.Movies.filter((movie)=>{if (movie.category === 'action'){countAction += 1;}});
+            categorys.push(countAction);
+
+            let countHS =0;
+            this.Movies.filter((movie)=>{if (movie.category === 'horrorSuspence'){countHS += 1;}});
+            categorys.push(countHS);
+
+            let countlove =0;
+            this.Movies.filter((movie)=>{if (movie.category === 'loveromance'){countHS += 1;}});
+            categorys.push(countlove);
+
+            let countSF =0;
+            this.Movies.filter((movie)=>{if (movie.category === 'horrorSuspence'){countSF += 1;}});
+            categorys.push(countSF);
+
+            let countAnime =0;
+            this.Movies.filter((movie)=>{if (movie.category === 'horrorSuspence'){countAnime += 1;}});
+            categorys.push(countAnime);
+
+            Vue.component('bar-chart', {
+                extends: VueChartJs.Bar,
+                mounted () {
+                  this.renderChart({
+                    labels: ['action','horrorSuspence','loveromance','sfFantasy','anime'],
+                    datasets: [
+                      {
+                        label: 'Movies',
+                        backgroundColor: '#82cddd',
+                        data: categorys
+                      }
+                    ]
+                  }, {responsive: true, maintainAspectRatio: false})
+                }
+            })
+        },
     }
 })
+

@@ -50,13 +50,15 @@
                   </li>
               </div>
 
-               <div v-on:click="watchLeft">左の画面にいく</div>
+               <div v-on:click="watchLeft">グラフを表示</div>
                <div v-on:click="watchRight">右の画面にいく</div>
           </div>
                 
                  
           <div v-if="left" key="left">
-          <p>左の画面</p>
+          <p>グラフを表示</p>
+          <bar-chart></bar-chart>
+          </li>
           <div v-on:click="watchHome">HOMEに戻る</div>
           <div v-on:click="watchRight">右の画面にいく</div>
           </div>
@@ -64,11 +66,14 @@
           <div v-if="right" key="right">
           <p>右の画面</p>
           <div v-on:click="watchHome">HOMEに戻る</div>
-          <div v-on:click="watchLeft">左の画面にいく</div>
+          <div v-on:click="watchLeft">グラフを表示</div>
           </div>
 
         </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs@3.5.1/dist/vue-chartjs.min.js"></script>
+
     <!-- star-raiting -->
     <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
      <!-- Vue.js -->
