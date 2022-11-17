@@ -128,15 +128,15 @@ new Vue({
             categorys.push(countHS);
 
             let countlove =0;
-            this.Movies.filter((movie)=>{if (movie.category === 'loveromance'){countHS += 1;}});
+            this.Movies.filter((movie)=>{if (movie.category === 'loveromance'){countlove += 1;}});
             categorys.push(countlove);
 
             let countSF =0;
-            this.Movies.filter((movie)=>{if (movie.category === 'horrorSuspence'){countSF += 1;}});
+            this.Movies.filter((movie)=>{if (movie.category === 'sfFantasy'){countSF += 1;}});
             categorys.push(countSF);
 
             let countAnime =0;
-            this.Movies.filter((movie)=>{if (movie.category === 'horrorSuspence'){countAnime += 1;}});
+            this.Movies.filter((movie)=>{if (movie.category === 'anime'){countAnime += 1;}});
             categorys.push(countAnime);
 
             Vue.component('bar-chart', {
