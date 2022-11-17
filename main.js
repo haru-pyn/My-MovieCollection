@@ -7,7 +7,7 @@ new Vue({
     },
     data:{
         home: true,
-        left: false,
+        chart: false,
         right: false,
         newDate:'',
         newTitle:'',
@@ -100,19 +100,19 @@ new Vue({
         },
         watchHome: function () {
             this.home = true;
-            this.left = false;
+            this.chart = false;
             this.right = false;
         },
-        watchLeft: function () {
+        watchChart: function () {
             this.home = false;
-            this.left = true;
+            this.chart = true;
             this.right = false;
 
             this.renderBarChart();
         },
         watchRight: function () {
             this.home = false;
-            this.left = false;
+            this.chart = false;
             this.right = true;
         },
         //グラフ↓
