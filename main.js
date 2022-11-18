@@ -8,14 +8,17 @@ new Vue({
     data:{
         home: true,
         chart: false,
-        right: false,
+        list: false,
         newDate:'',
         newTitle:'',
         newCategory:'',
         newMemo:'',
         rating:0,
         uniqueKey:0,
-        Movies:JSON.parse(localStorage.getItem('Movies')) || []
+        Movies:JSON.parse(localStorage.getItem('Movies')) || [],
+        newItem:'',
+        randomItem:'',
+        Items:JSON.parse(localStorage.getItem('Items')) || [],
     },
     mounted(){
         this.getUniqueKey()
@@ -101,19 +104,19 @@ new Vue({
         watchHome: function () {
             this.home = true;
             this.chart = false;
-            this.right = false;
+            this.list = false;
         },
         watchChart: function () {
             this.home = false;
             this.chart = true;
-            this.right = false;
+            this.list = false;
 
             this.renderBarChart();
         },
-        watchRight: function () {
+        watchList: function () {
             this.home = false;
             this.chart = false;
-            this.right = true;
+            this.list = true;
         },
         //グラフ↓
         renderBarChart: function(){
@@ -154,6 +157,30 @@ new Vue({
                   }, {responsive: true, maintainAspectRatio: false})
                 }
             })
+        },
+        addItem: function(){
+            if (this.newItem === '')return;
+            this.Items.push(
+                {
+                    Item: this.newItem,
+                }
+            );
+            this.initItems();
+            this.setItems();
+        },
+        initItems: function(){
+            this.newItem = '';
+        },
+        setItems: function(){
+            localStorage.setItem('Items', JSON.stringify(this.Items));
+        },
+        ranItem: function(){
+            this.randomItem = this.Items[Math.floor(Math.random() * this.Items.length)];
+        },
+        DeleteItems: function(item){
+            var index = this.Items.indexOf(item)
+            this.Items.splice(index,1)
+            this.setItems();
         },
     }
 })

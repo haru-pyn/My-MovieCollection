@@ -26,7 +26,7 @@ width: 90%;
 }
 .boxB {
     list-style: none;
-    width: 90%;
+    width: 100%;
 }
 .boxB li{
     color: rgb(0, 0, 0);
@@ -78,4 +78,40 @@ h1 {
 .new:focus {
     outline: 0;
     border-color: #bbe2f1;
+}
+.ranbutton{
+    display: block;	
+    position: relative;	
+    width: 200px;	
+    padding: 0.8em;	
+    text-align: center;	
+    text-decoration: none;	
+    color: #1B1B1B;	
+    background: #fff;	
+    border:1px solid #1B1B1B;
+    margin: auto;
+}
+.ranbutton:hover {
+    background: #82cddd; 
+    color: #fff; 
+    cursor: pointer; 
+    text-decoration: none;
+}
+.randomMovie {
+    color: #1B1B1B;
+    text-align:center;
+    font-size: x-large;
+}
+.movieItem {
+    color: #1B1B1B;
+    text-align:center;
+    font-size: x-large;
+}
+.movieList {
+    font-size: 15px;
+    background-color: #bbe2f1;
+    color: #fff;
+    padding: 5px 5px;
+    width: 100px;
+    text-align:center;
 }

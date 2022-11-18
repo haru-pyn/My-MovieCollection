@@ -51,22 +51,39 @@
               </div>
 
                <div v-on:click="watchChart">グラフを表示</div>
-               <div v-on:click="watchRight">右の画面にいく</div>
+               <div v-on:click="watchList">観たい映画リストを表示</div>
           </div>
                 
                  
           <div v-if="chart" key="chart">
-          <p>グラフを表示</p>
-          <bar-chart></bar-chart>
-          </li>
-          <div v-on:click="watchHome">HOMEに戻る</div>
-          <div v-on:click="watchRight">右の画面にいく</div>
+
+             <bar-chart></bar-chart>
+
+             <div v-on:click="watchHome">HOMEに戻る</div>
+             <div v-on:click="watchList">観たい映画リストを表示</div>
           </div>
            
-          <div v-if="right" key="right">
-          <p>右の画面</p>
-          <div v-on:click="watchHome">HOMEに戻る</div>
-          <div v-on:click="watchChart">グラフを表示</div>
+          <div v-if="list" key="list">
+
+                 <p class="boxA">
+                 観たい映画を追加する<br>   
+                 Title <input type="text" v-model="newItem" class="new"><br>
+                 <button @click="addItem" class="buttons">Add</button>
+             </p>
+   
+             <div class="randomMovie">どの映画を観るか決めよう</div>
+             <div class="movieItem">【{{ randomItem.Item }}】</div>
+             <button @click="ranItem" class="ranbutton">START</button>
+   
+             <div class="boxB">
+                 <div class="movieList">WatchList</div>
+                 <li v-for="item in Items">Title:{{ item.Item }}
+                 <button @click="DeleteItems(item)" class="buttons">Delete</button>
+                 </li>
+             </div>
+   
+             <div v-on:click="watchHome">HOMEに戻る</div>
+             <div v-on:click="watchChart">グラフを表示</div>
           </div>
 
         </div>
