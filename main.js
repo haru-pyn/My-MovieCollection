@@ -182,6 +182,22 @@ new Vue({
             this.Items.splice(index,1)
             this.setItems();
         },
+        deleteAlert: function(){
+            var result = window.confirm('本当に削除してもよろしいですか');
+            if(result){
+                this.DeleteMovies();  
+            } else {
+                ;
+            }
+        },
+        deleteItemAlert: function(){
+            var result = window.confirm('本当に削除してもよろしいですか');
+            if(result){
+                this.DeleteItems();  
+            } else {
+                ;
+            }
+        }
     }
 })
 
