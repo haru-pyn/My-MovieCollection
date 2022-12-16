@@ -67,9 +67,14 @@ new Vue({
             this.newMemo = '';
         },
         DeleteMovies: function(movie){
-            var index = this.Movies.indexOf(movie)
-            this.Movies.splice(index,1)
-            this.setMovies();
+            var result = window.confirm('本当に削除してもよろしいですか');
+            if(result){
+                var index = this.Movies.indexOf(movie)
+                this.Movies.splice(index,1)
+                this.setMovies();
+            } else {
+                ;
+            }
         },
         setMovies: function(){
             localStorage.setItem('Movies', JSON.stringify(this.Movies));
@@ -178,22 +183,11 @@ new Vue({
             this.randomItem = this.Items[Math.floor(Math.random() * this.Items.length)];
         },
         DeleteItems: function(item){
-            var index = this.Items.indexOf(item)
-            this.Items.splice(index,1)
-            this.setItems();
-        },
-        deleteAlert: function(){
             var result = window.confirm('本当に削除してもよろしいですか');
             if(result){
-                this.DeleteMovies();  
-            } else {
-                ;
-            }
-        },
-        deleteItemAlert: function(){
-            var result = window.confirm('本当に削除してもよろしいですか');
-            if(result){
-                this.DeleteItems();  
+                var index = this.Items.indexOf(item)
+                this.Items.splice(index,1)
+                this.setItems();  
             } else {
                 ;
             }

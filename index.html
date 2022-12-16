@@ -51,7 +51,7 @@
                       <span>Date:{{ movie.date }}
                             Title:{{ movie.title }} Category:{{ movie.category }} 評価★{{ movie.star }}<br>
                             Memo:{{ movie.memo }}</span>
-                      <button @click="deleteAlert" class="buttons">Delete</button>
+                      <button @click="DeleteMovies(movie)" class="buttons">Delete</button>
                   </li>
               </div>
 
@@ -83,7 +83,7 @@
              <div class="boxB">
                  <div class="movieList">WatchList</div>
                  <li v-for="item in Items">Title:{{ item.Item }}
-                 <button @click="deleteItemAlert" class="buttons">Delete</button>
+                 <button @click="DeleteItems(item)" class="buttons">Delete</button>
                  </li>
              </div>
    
